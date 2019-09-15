@@ -21,5 +21,5 @@ class VisualContent < ApplicationRecord
   validates :title,
             presence: true,
             uniqueness: true
-  validates :plot
+  validates :plot, presence: true
 end

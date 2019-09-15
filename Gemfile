@@ -13,6 +13,12 @@ gem 'puma', '~> 3.11'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot', require: false
+  gem 'faker'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'simplecov', require: false
 end
 
 group :development do

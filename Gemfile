@@ -6,6 +6,7 @@ ruby '2.6.2'
 gem 'rails', '~> 6.0.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'fast_jsonapi'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 

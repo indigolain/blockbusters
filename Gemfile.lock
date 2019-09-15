@@ -56,6 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
+    acts_as_list (0.9.19)
+      activerecord (>= 3.0)
     annotate (2.7.5)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 13.0)
@@ -153,6 +155,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   annotate
   bootsnap (>= 1.4.2)
   byebug

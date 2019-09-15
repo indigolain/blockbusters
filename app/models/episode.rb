@@ -20,10 +20,12 @@
 #
 
 class Episode < ApplicationRecord
-  belongs_to :visual_content
+  acts_as_list scope: :visual_content_id
+  belongs_to :season,
+             foreign_key: :visual_content_id
   validates :title,
             presence: true,
             uniqueness: true
   validates :plot, presence: true
-  validates :visual_content
+  validates :season, presence: true
 end

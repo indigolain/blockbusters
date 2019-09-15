@@ -16,4 +16,7 @@
 #
 
 class Season < VisualContent
+  has_many :episodes,
+           -> { order(:position) },
+           foreign_key: :visual_content_id
 end

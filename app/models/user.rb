@@ -13,7 +13,7 @@
 #
 
 class User < ApplicationRecord
-  has_many :purchases
+  has_many :purchases, -> { order(:created_at) }
   has_many :purchased_contents,
            through: :purchases,
            source: :purchase_option,

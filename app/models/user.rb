@@ -14,10 +14,12 @@
 
 class User < ApplicationRecord
   has_many :purchases, -> { order(:created_at) }
-  has_many :purchased_contents,
+  has_many :purchased_options,
            through: :purchases,
-           source: :purchase_option,
-           class_name: 'VisualContent'
+           source: :purchase_option
+  has_many :purchased_contents,
+           through: :purchased_options,
+           source: :visual_content
 
   validates :email,
             presence: true,

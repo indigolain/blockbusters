@@ -20,7 +20,7 @@
 #
 
 FactoryBot.define do
-  factory :purchases do
+  factory :purchase do
     association :user
     association :purchase_option
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_144214) do
+ActiveRecord::Schema.define(version: 2019_09_15_145313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2019_09_15_144214) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["visual_content_id", "price", "video_quality"], name: "visual_content_price_video_quality_index", unique: true
     t.index ["visual_content_id"], name: "index_purchase_options_on_visual_content_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "purchase_option_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["purchase_option_id"], name: "index_purchases_on_purchase_option_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,4 +52,6 @@ ActiveRecord::Schema.define(version: 2019_09_15_144214) do
   end
 
   add_foreign_key "purchase_options", "visual_contents"
+  add_foreign_key "purchases", "purchase_options"
+  add_foreign_key "purchases", "users"
 end

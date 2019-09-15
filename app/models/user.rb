@@ -13,6 +13,8 @@
 #
 
 class User < ApplicationRecord
+  has_many :purchases
+
   validates :email,
             presence: true,
             uniqueness: true,

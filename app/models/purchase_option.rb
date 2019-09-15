@@ -21,6 +21,7 @@
 
 class PurchaseOption < ApplicationRecord
   belongs_to :visual_content
+  has_many :purchases
 
   validates :price,
             presence: true,

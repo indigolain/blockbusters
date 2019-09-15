@@ -25,4 +25,15 @@ class Purchase < ApplicationRecord
 
   validates :user, presence: true
   validates :purchase_option, presence: true
+  validate :disallow_active_duplicates
+
+  scope :active, -> { where(created_at: 2.days.ago..Float::INFINITY) }
+
+  private
+
+    def disallow_active_duplicates
+      if user.purchased_contents.merge(Purchase.active).exists?(purchase_option.visual_content.id)
+        errors.add(:purchase_option_id, 'is duplicate and can not be purchased')
+      end
+    end
 end

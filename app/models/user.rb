@@ -14,6 +14,10 @@
 
 class User < ApplicationRecord
   has_many :purchases
+  has_many :purchased_contents,
+           through: :purchases,
+           source: :purchase_option,
+           class_name: 'VisualContent'
 
   validates :email,
             presence: true,

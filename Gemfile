@@ -9,7 +9,7 @@ gem 'acts_as_list'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
